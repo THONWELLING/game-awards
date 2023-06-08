@@ -10,4 +10,6 @@ public interface GameService {
   Game addGame(Game game);
   void updateGame(Long id,  Game game);
   void deleteGame(Long id);
+
+  void vote(Long id);
 }

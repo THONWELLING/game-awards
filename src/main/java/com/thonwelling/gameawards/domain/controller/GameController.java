@@ -38,6 +38,11 @@ public class GameController {
     service.updateGame(id, game);
     return ResponseEntity.ok(game);
   }
+  @PatchMapping("/{id}/vote")
+  public ResponseEntity<Game> vote(@PathVariable Long id) {
+    service.vote(id);
+    return ResponseEntity.ok().build();
+  }
   @DeleteMapping("/{id}")
   public ResponseEntity<Game> updateGame(@PathVariable Long id) {
     service.deleteGame(id);

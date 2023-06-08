@@ -44,6 +44,13 @@ public class GameServiceImpl implements GameService {
       throw new RuntimeException("The Ids To Update Are Differents");
     }
   }
+  @Override
+  public void vote(Long id) {
+    Game persistedGame = findGameById(id);
+   persistedGame.setVotes(persistedGame.getVotes() + 1);
+
+   updateGame(id, persistedGame);
+  }
 
   @Override
   public void deleteGame(Long id) {
