@@ -28,8 +28,11 @@ public class GameServiceImpl implements GameService {
   }
 
   @Override
-  public void addGame(Game game) {
-
+  public Game addGame(Game game) {
+    if (game.getId() != null) {
+      throw new RuntimeException("Game already exists");
+    }
+    return gameRepository.save(game);
   }
 
   @Override
